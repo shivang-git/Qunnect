@@ -1,0 +1,22 @@
+{
+    "name": "preshak",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "dev": "nodemon src/server.js -e js,ejs,css",
+        "start": "node src/server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cookie-parser": "^1.4.6",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "path": "^0.12.7",
+        "socket.io": "^4.4.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
+}
