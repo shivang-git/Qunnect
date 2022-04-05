@@ -84,7 +84,7 @@ socket.emit('user-joins', user);
 
 socket.on('user-joined', user => {
     // display_center(`${user} joined the chat.`);       
-    display_msg(`${user} joined the chat.`, 'chat-message-center');
+    display_msg(`<strong>${user} joined the chat.</strong>`, 'chat-message-center');
 });
 
 
@@ -98,6 +98,6 @@ socket.on('chat-recieve', data => {
 
 socket.on('left-chat', (msg) => {
     // display_center(`${msg} left the chat.`);       
-    display_msg(`${msg} left the chat.`, 'chat-message-center');
+    display_msg(`<strong>${msg} left the chat.</strong>`, 'chat-message-center');
 
 });

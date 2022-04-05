@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const host = 'localhost' | '192.168.1.242'
 const port = process.env.PORT | 3000
 const UserRouter = require('../routes/UserRoute')
 const socketio = require('socket.io')
@@ -48,6 +47,6 @@ app.set('views', './views');
 
 app.use('/', UserRouter)
 
-server.listen(port, host, () => {
+server.listen(port, () => {
     console.log(`server listening ${port}`);
 })
