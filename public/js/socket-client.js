@@ -4,11 +4,8 @@ let user
 let key
 do {
     user = prompt('Enter your name:');
-    // proceed = confirm("Are you sure you want to proceed?");
-    // if (!proceed) {
-    //     user = prompt('Enter your name')
-    // }
-} while (user.length === 0 | user == ' ' | user === null);
+
+} while (!user);
 
 
 
