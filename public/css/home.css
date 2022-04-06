@@ -65,24 +65,24 @@ body {
 }
 
 .chat-message-center {
-    margin-right: auto;
-    margin-left: auto;
+    flex-direction: column;
     clear: both;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 }
 
 .chat-message-left {
-    margin-right: auto;
     clear: both;
+    margin-right: auto;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 }
 
 .chat-message-right {
-    flex-direction: row-reverse;
-    margin-left: auto;
     clear: both;
+    margin-left: auto;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 }

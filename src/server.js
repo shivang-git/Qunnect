@@ -24,6 +24,10 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('chat-recieve', { message: msg, user: chatters[socket.id] })
     })
 
+    socket.on('typing', user => {
+        socket.broadcast.emit('typing', user)
+    })
+
 
 
     socket.on('disconnect', (msg) => {
