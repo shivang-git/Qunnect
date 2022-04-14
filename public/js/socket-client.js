@@ -7,8 +7,7 @@ do {
 
 } while (!user);
 
-const userhead = document.getElementById("userhead");
-userhead.innerHTML = `${user}`;
+
 
 
 const form = document.getElementById('chat-form');;
@@ -67,7 +66,6 @@ form.addEventListener('submit', (e) => {
         // display_right(`You: ${send_me}`)
         display_msg(`<strong>You</strong>: ${send_message}&nbsp`, 'chat-message-right');
         socket.emit('chat-send', send_message);
-        textarea.focus()
         textarea.value = ''
         scrolls()
 
@@ -98,13 +96,38 @@ function debounce(func, timer) {
 
 
 
+
 socket.emit('user-joins', user);
 
-socket.on('user-joined', user => {
-    // display_center(`${user} joined the chat.`);       
-    display_msg(`<div style="font-weight: 600;">${user} joined the chat.</div>`, 'chat-message-center');
+socket.on('welcome-msg', (msg) => {
+    display_msg(`<div style="font-weight: 600;">${msg}</div>`, 'chat-message-center');
+
+})
+
+socket.on('user-joined', data => {
+    display_msg(`<div style="font-weight: 600;">${data.user} joined the chat.</div>`, 'chat-message-center');
+    for (const items in data.chatters) {
+        const userhead = document.getElementById("userhead");
+        userhead.innerHTML = `${Object.values(data.chatters)}`;
+    }
+
 });
 
+socket.on('users-name', (chatters) => {
+    for (const items in chatters) {
+        const userhead = document.getElementById("userhead");
+        userhead.innerHTML = `${Object.values(chatters)}`;
+    }
+
+})
+
+socket.on('user-left', (chatters) => {
+    for (const items in chatters) {
+        const userhead = document.getElementById("userhead");
+        userhead.innerHTML = `${Object.values(chatters)}`;
+    }
+
+})
 
 socket.on('chat-recieve', data => {
     // display_left(`${data.user} : ${data.message}`);       
@@ -117,7 +140,7 @@ socket.on('typing', user => {
     typingele.innerText = `${user} is typing...`;
     debounce(function() {
         typingele.innerText = ''
-    }, 3000)
+    }, 5000)
 
 })
 

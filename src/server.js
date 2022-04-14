@@ -13,10 +13,12 @@ const chatters = {}
 
 io.on('connection', (socket) => {
 
-    socket.on('user-joins', user => {
-
+    socket.on('user-joins', (user) => {
         chatters[socket.id] = user
-        socket.broadcast.emit('user-joined', user)
+        socket.emit('welcome-msg', "Welcome to Preshak")
+        socket.broadcast.emit('user-joined', { user: user, chatters: chatters })
+        socket.emit('users-name', chatters)
+
     })
 
 
@@ -32,9 +34,11 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', (msg) => {
         socket.broadcast.emit('left-chat', chatters[socket.id])
+        delete chatters[socket.id]
+        socket.broadcast.emit('user-left', chatters)
+
     })
 })
-
 
 
 const staticpath = path.join(__dirname, '../public')

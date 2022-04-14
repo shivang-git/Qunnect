@@ -87,6 +87,13 @@ body {
     margin-top: 0.5rem;
 }
 
+.typing-left {
+    clear: both;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
 
 /* .py-3 {
     padding-top: 1rem!important;
@@ -104,4 +111,18 @@ body {
 
 .border-top {
     border-top: 1px solid #dee2e6!important;
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    margin-top: auto;
+    height: 25px;
+}
+
+footer p {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: white;
+    text-align: center;
 }
