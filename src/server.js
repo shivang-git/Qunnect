@@ -8,7 +8,6 @@ const http = require('http')
 const server = http.createServer(app)
 const io = socketio(server)
 
-
 const chatters = {}
 
 io.on('connection', (socket) => {
